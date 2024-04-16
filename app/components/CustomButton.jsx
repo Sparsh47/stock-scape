@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, ActivityIndicator } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 
@@ -18,9 +18,13 @@ const CustomButton = ({
       }`}
       disabled={isLoading}
     >
-      <Text className={`text-secondary text-lg font-psemibold ${textStyles}`}>
-        {title}
-      </Text>
+      {isLoading ? (
+        <ActivityIndicator size="large" color="#dedcff" />
+      ) : (
+        <Text className={`text-secondary text-lg font-psemibold ${textStyles}`}>
+          {title}
+        </Text>
+      )}
       <StatusBar backgroundColor="#222" style="light" />
     </TouchableOpacity>
   );
